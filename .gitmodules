@@ -1,0 +1,12 @@
+[submodule "puppet/modules/rabbitmq"]
+	path = puppet/modules/rabbitmq
+	url = https://github.com/puppetlabs/puppetlabs-rabbitmq
+[submodule "puppet/modules/erlang"]
+	path = puppet/modules/erlang
+	url = https://github.com/Envek/puppet-erlang
+[submodule "puppet/modules/consul"]
+	path = puppet/modules/consul
+	url = https://github.com/solarkennedy/puppet-consul
+[submodule "puppet/modules/stdlib"]
+	path = puppet/modules/stdlib
+	url = https://github.com/puppetlabs/puppetlabs-stdlib
