@@ -1,5 +1,12 @@
+service { "firewalld":
+	ensure => "stopped",
+	enable => true,
+} ->
 package { "unzip":
 	ensure => "present",
+} ->
+package { "lvm2":
+	ensure => "absent",
 } ->
 class { "::epel":
 } ->
