@@ -16,3 +16,9 @@
 [submodule "puppet/modules/epel"]
 	path = puppet/modules/epel
 	url = https://github.com/stahnma/puppet-module-epel
+[submodule "puppet/modules/docker"]
+	path = puppet/modules/docker
+	url = https://github.com/garethr/garethr-docker
+[submodule "puppet/modules/archive"]
+	path = puppet/modules/archive
+	url = https://github.com/voxpupuli/puppet-archive
