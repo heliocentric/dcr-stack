@@ -30,6 +30,7 @@ class  {"::consul":
   }
 } ->
 class { "::docker":
+	tcp_bind        => ['tcp://127.0.0.1:2375'],
 }
 rabbitmq_user { 'vagrant':
   admin    => true,
@@ -39,4 +40,16 @@ rabbitmq_user_permissions { 'vagrant@/':
   configure_permission => '.*',
   read_permission      => '.*',
   write_permission     => '.*',
+}
+docker::run { 'swarm':
+  image           => 'swarm',
+  command         => 'join --advertise=127.0.0.1:2375 consul://127.0.0.1:8500',
+  detach          => true,
+}
+docker::run { 'swarm-master':
+  image           => 'swarm',
+  command         => 'manage -H :4000 --replication --advertise 127.0.0.1:4000 consul://127.0.0.1:8500',
+  ports           => ['4000'],
+  expose          => ['4000'],
+  detach          => true,
 }
