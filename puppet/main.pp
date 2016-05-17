@@ -14,6 +14,7 @@ class { "::erlang":
 } ->
 class  {"::rabbitmq":
 	package_provider => "rpm",
+	admin_enable => true,
 	management_port => "15672",
 	package_source => 'https://www.rabbitmq.com/releases/rabbitmq-server/v3.6.1/rabbitmq-server-3.6.1-1.noarch.rpm',
 } ->
@@ -53,4 +54,9 @@ docker::run { 'swarm-master':
   ports           => ['4000'],
   expose          => ['4000'],
   detach          => true,
+}
+class { '::mysql::server':
+  root_password           => 'strongpassword',
+  remove_default_accounts => true,
+  override_options        => $override_options
 }
